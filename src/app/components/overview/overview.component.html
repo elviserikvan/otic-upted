@@ -1,0 +1,39 @@
+
+<ng-template [ngIf]="selected" [ngIfElse]="noElements">
+
+	<button (click)="onAdd()" class="my-4 btn btn-success">Añadir nuevo</button>
+
+	<div class="py-4">
+		
+		<ng-template [ngIf]="selected.image">
+			<img src="{{selected.image}}" alt="">
+		</ng-template>
+
+		<h2 class="mt-3"> {{selected.title}} </h2>
+
+		<ng-template [ngIf]="selected.description">
+			<hr>
+			<p class="text-justify">
+				{{selected.description}}
+			</p>
+		</ng-template>
+
+
+		<hr>
+		<div class="row">
+			<div class="col-4">
+				<p>Cantidad: </p>
+				<p><strong>{{selected.amount}}</strong></p>
+			</div>
+			<div class="col-4">
+				<p>Ubicacion: </p>
+				<p> <strong>{{selected.location}} </strong></p>
+			</div>
+			<div class="col-4"></div>
+		</div>
+	</div>
+</ng-template>
+
+<ng-template #noElements>
+	<app-no-item-selected></app-no-item-selected>
+</ng-template>

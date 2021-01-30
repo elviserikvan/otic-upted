@@ -1,0 +1,16 @@
+<div class="container">
+	<div class="row">
+		<div class="col-4">
+			<app-sidebar (parent)="onSelect($event)"></app-sidebar>
+		</div>
+		<div class="col-8">
+			<ng-template [ngIf]="overview" [ngIfElse]="appOverview">
+				<app-overview [selected]="item" (addItem)="onAdd()"></app-overview>
+			</ng-template>
+
+	   		<ng-template #appOverview>
+				<app-add-form  (exitForm)="onExit()"></app-add-form>
+			</ng-template>
+		</div>			
+	</div>
+</div>

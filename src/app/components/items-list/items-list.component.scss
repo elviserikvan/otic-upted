@@ -1,0 +1,13 @@
+div.wrap {
+	max-height: 90vh;
+	overflow-y: scroll;
+
+	.amount {
+		width: 30px;
+		height: 30px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: #ccc;
+	}
+}

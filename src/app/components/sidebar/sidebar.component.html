@@ -1,0 +1,9 @@
+<div class="border-right p-4">
+	<form class="border-bottom">
+		<div class="form-group">
+			<input placeholder="Buscar Items" type="text" class="form-control">
+		</div>
+	</form>
+
+	<app-items-list *ngFor="let item of items" [item]="item" (onItem)="onItem($event)"></app-items-list>
+</div>
