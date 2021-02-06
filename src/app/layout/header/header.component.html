@@ -2,7 +2,7 @@
 	<div class="container">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-			<a class="navbar-brand" href="#">Telematica</a>
+			<a class="navbar-brand" routerLink="/">OTIC</a>
 
 			<button class="navbar-toggler" 
 				type="button" 
@@ -46,8 +46,26 @@
 				</ul>
 
 				<ul class="">
+					<!--
+					<a class="btn btn-primary mr-4" routerLink="/login">Inicia Sesion</a>
+					<a class="btn btn-secondary" routerLink="/signup">Registrate</a>
 					<button (click)="onAdd()" type="button" class="btn btn-success">Añadir nuevo</button>
+					<a class="btn btn-primary mr-4" routerLink="/login">Inicia Sesion</a>
+					<a class="btn btn-secondary" routerLink="/signup">Registrate</a>
+					-->
+
+					<div class="dropdown show">
+						<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Usuario
+						</a>
+
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+							<a (click)="onAdd()" class="dropdown-item" href="#">Anañir Nuevo</a>
+							<a class="dropdown-item" href="#">Cerrar Sesion</a>
+						</div>
+					</div>
 				</ul>
+
 				<!--
 				<form class="form-inline my-2 my-lg-0">
 					<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

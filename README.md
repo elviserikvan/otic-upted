@@ -1,27 +1,27 @@
-# TelematicaApp
+# Sobre Este Proyecto
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
+Este proyecto fue creador por mi y unos compareños de la universidad para solucionar un problema en la Oficina de Tecnologia de Informacion y Comunicacion (OTIC).
 
-## Development server
+El objetivo de este proyecto es solucionar un problema encontrado en dicha oficina. Al indagar en este proyecto nos daremos cuenta que esta aplicacion web funciona como control de inventario para dicha oficina.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Detalles Tecnicos
 
-## Code scaffolding
+Estos son algunos detalles sobre como fue construida. Ante todo momento hay tener en cuenta que esta aplicacion web utiliza el MEAN Stack, por lo tanto, cualquier otro proyecto que utilize el mismo Stack deberia de funcionar de la mima manera
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+En el Front-End:
 
-## Build
+	- Angular
+	- Bootstrap
+	- Jquery
+	- Popper.js 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+En el Back-End:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+	- NodeJS
+	- Express.js
+	- Mongoose
 
-## Running end-to-end tests
+Base de datos:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+	- MongoDB	

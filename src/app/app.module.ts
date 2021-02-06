@@ -15,6 +15,8 @@ import { HeaderComponent } from './layout/header/header.component';
 import { AddFormComponent } from './components/add-form/add-form.component';
 import { NoItemSelectedComponent } from './components/no-item-selected/no-item-selected.component';
 import { EditFormComponent } from './components/edit-form/edit-form.component';
+import { LoginComponent } from './pages/login/login.component';
+import { SignUpComponent } from './pages/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { EditFormComponent } from './components/edit-form/edit-form.component';
     HeaderComponent,
     AddFormComponent,
     NoItemSelectedComponent,
-    EditFormComponent
+    EditFormComponent,
+    LoginComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
