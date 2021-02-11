@@ -5,15 +5,17 @@
 
 	<div class="py-4">
 		
+		<!--
 		<ng-template [ngIf]="selected.image">
 			<img src="{{selected.image}}" alt="">
 		</ng-template>
+		-->
 
 		<h2 class="mt-3"> {{selected.title}} </h2>
 
 		<ng-template [ngIf]="selected.description">
 			<hr>
-			<p class="text-justify">
+			<p style="width: 100%;" class="text-justify">
 				{{selected.description}}
 			</p>
 		</ng-template>

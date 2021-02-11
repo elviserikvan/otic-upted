@@ -1,4 +1,13 @@
+import { environment } from './../../environments/environment'
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+const httpHeaders =  {
+	headers: new HttpHeaders({
+		'Content-Type': 'application/json'
+	})
+}
 
 @Injectable({
   providedIn: 'root'
@@ -7,8 +16,10 @@ export class ItemService {
 
   items: any[];
   selected: any;
+  api_uri: string = environment.api_url;
 
-  constructor() {
+
+  constructor(private http: HttpClient) {
 	this.selected = null;
  	this.items = [
 		{
@@ -52,14 +63,29 @@ export class ItemService {
 	];
   }
 
-  getItems() {
-  	return this.items;
+  getItems():Observable<any> {
+	return this.http.get(this.api_uri, httpHeaders);
+  	//return this.items;
   }
 
   addItem(item: any) {
+	/*
 	item.id = Math.floor(Math.random() * (100 - 1)) + 1;
 	this.items.push(item);
-  	console.log(item);
+	console.log(item);
+	 */
+
+	this.http.post<any>(this.api_uri, item, httpHeaders).subscribe(response => {
+		if(!response.error) {
+
+			console.log(response);
+			this.items.push(response);
+
+		}else {
+			console.log('error')	
+		}
+	})
+
   }
 
   ifSelected() {

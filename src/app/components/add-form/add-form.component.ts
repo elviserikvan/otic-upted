@@ -83,6 +83,7 @@ export class AddFormComponent implements OnInit {
 		this.description = this.description ? this.description : '';
 
 		let data = {
+			//file: this.file,
 			title: this.title,
 			amount: this.amount,
 			location: this.location,

@@ -14,7 +14,10 @@ export class SidebarComponent implements OnInit {
   constructor(private itemService: ItemService) { }
 
   ngOnInit(): void {
-	  this.items = this.itemService.getItems();
+//	  this.items = this.itemService.getItems();
+	  this.itemService.getItems().subscribe(response => {
+	  	this.items = response
+	  })
   }
 
   onItem(item) {
