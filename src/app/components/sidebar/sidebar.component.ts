@@ -9,15 +9,21 @@ import { ItemService } from '../../services/item.service';
 export class SidebarComponent implements OnInit {
   @Output() parent: EventEmitter<any> = new EventEmitter(); 
 
-  items: any[];
+  items: any;
 
   constructor(private itemService: ItemService) { }
 
-  ngOnInit(): void {
-//	  this.items = this.itemService.getItems();
+  async ngOnInit(): Promise<void> {
+	//this.items = this.itemService.items;
+	let items = await this.itemService.fetchData();
+	this.items = items;
+	/*
 	  this.itemService.getItems().subscribe(response => {
 	  	this.items = response
 	  })
+
+	 */
+	  //this.items = <any>await this.itemService.getItems().toPromise() 
   }
 
   onItem(item) {

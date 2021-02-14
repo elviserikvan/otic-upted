@@ -14,13 +14,21 @@ const httpHeaders =  {
 })
 export class ItemService {
 
-  items: any[];
+  items: any;
   selected: any;
   api_uri: string = environment.api_url;
 
 
-  constructor(private http: HttpClient) {
+ constructor(private http: HttpClient) {
 	this.selected = null;
+	this.fetchData();
+
+	//this.fetchItems();
+	/*
+	this.http.get(this.api_uri, httpHeaders).subscribe(response => {
+		console.log(response)
+		this.items = response;
+	});
  	this.items = [
 		{
 			id: 1,
@@ -61,12 +69,29 @@ export class ItemService {
 			description: ''
 		},
 	];
+	*/
   }
 
-  getItems():Observable<any> {
+ getItems():any {
 	return this.http.get(this.api_uri, httpHeaders);
-  	//return this.items;
+
+/*
+	let items = <any>await this.http.get(this.api_uri, httpHeaders).toPromise();
+	this.items = items;
+	console.log(items);
+	return items;
+	this.http.get(this.api_uri, httpHeaders).subscribe(response => {
+		this.items = response;
+	});
+       */
   }
+
+  async fetchData() {
+	let items = <any>await this.http.get(this.api_uri, httpHeaders).toPromise();
+	this.items = items;
+	return items;
+  }
+
 
   addItem(item: any) {
 	/*
@@ -78,7 +103,7 @@ export class ItemService {
 	this.http.post<any>(this.api_uri, item, httpHeaders).subscribe(response => {
 		if(!response.error) {
 
-			console.log(response);
+			//console.log(response);
 			this.items.push(response);
 
 		}else {
@@ -86,6 +111,30 @@ export class ItemService {
 		}
 	})
 
+  }
+
+  async editItem(item: any, id: any): Promise<any> {
+	let edited = <any>await this.http.put<any>(`${this.api_uri}/${id}`, item, httpHeaders).toPromise()
+	return edited;
+	
+		/*
+	this.http.put<any>(`${this.api_uri}/${id}`, item, httpHeaders).subscribe(response => {
+		console.log(response._id, this.items[0].id)
+		this.items.forEach(element => {
+			if(element.id == response._id) {
+				console.log('found it');
+				element = response
+			}
+		})
+	})
+	       */
+
+  }
+
+  async deleteItem(item: any):Promise<any> {
+	let response = <any>await this.http.delete<any>(`${this.api_uri}/${item._id}`, httpHeaders).toPromise()
+	//return edited;
+	return response;
   }
 
   ifSelected() {

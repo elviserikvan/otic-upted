@@ -1,0 +1,45 @@
+
+<ng-template [ngIf]="success_message">
+	<div class="alert alert-success lert-dismissible fade show" role="alert">
+		 Este elemento se <strong>guardo con exito</strong>
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+</ng-template>
+
+<form (ngSubmit)="onSubmit()" class="pt-4">
+	<div class="form-group ">
+		<label for="titleInput">Titulo del producto</label>
+		<input type="text" [(ngModel)]="local.title" [ngClass]="titleClass" name="title" class="form-control" id="titleInput" aria-describedby="titleHelp" placeholder="Titulo del producto">
+		<div class="invalid-feedback">
+			{{titleMessage}}
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="ubicacioninput">Ubicacion</label>
+		<input type="text"[(ngModel)]="local.location" [ngClass]="locationClass" name="location" class="form-control" id="ubicacioninput" placeholder="Ubicacion">
+		<div class="invalid-feedback">
+			{{locationMessage}}
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="amountInput">Cantidad</label>
+		<input type="number" [(ngModel)]="local.amount" [ngClass]="amountClass" name="amount" class="form-control" id="amountInput" placeholder="Cantidad">
+		<div class="invalid-feedback">
+			{{amountMessage}}
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="form-check-label" for="desc">Description</label>
+		<textarea [(ngModel)]="local.description" name="description" class="form-control" id="desc" rows="3"></textarea>
+	</div>
+
+	<div class="d-flex align-items-center justify-content-between">
+		<button type="submit" class="btn btn-primary">Guardar</button>
+		<button (click)="onExit($event)" class="btn btn-danger ml-auto">Salir</button>
+	</div>
+</form>

@@ -10,6 +10,8 @@ export class OverviewComponent implements OnInit {
 
   @Input() selected: any;
   @Output() addItem: EventEmitter<any> = new EventEmitter();
+  @Output() editItem: EventEmitter<any> = new EventEmitter();
+  @Output() deleteItem: EventEmitter<any> = new EventEmitter();
 
 
   element: any;
@@ -22,5 +24,13 @@ export class OverviewComponent implements OnInit {
 
   onAdd() {
 	this.addItem.emit();
+  }
+
+  onEdit() {
+	this.editItem.emit(this.selected);
+  }
+
+  onDelete() {
+	this.deleteItem.emit(this.selected);
   }
 }

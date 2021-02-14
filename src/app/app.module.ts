@@ -14,6 +14,7 @@ import { ItemComponent } from './components/item/item.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { AddFormComponent } from './components/add-form/add-form.component';
 import { NoItemSelectedComponent } from './components/no-item-selected/no-item-selected.component';
+import { EditFormComponent } from './components/edit-form/edit-form.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NoItemSelectedComponent } from './components/no-item-selected/no-item-s
     ItemComponent,
     HeaderComponent,
     AddFormComponent,
-    NoItemSelectedComponent
+    NoItemSelectedComponent,
+    EditFormComponent
   ],
   imports: [
     BrowserModule,
