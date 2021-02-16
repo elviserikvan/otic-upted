@@ -46,3 +46,7 @@ Y por ultimo, iniciamos la aplicacion.
 ```
 node main.js
 ```
+
+## Screenshot
+
+![Screenshot](https://github.com/elviserikvan/otic-upted/blob/main/screenshots/screenshot.png "Screenshot")
