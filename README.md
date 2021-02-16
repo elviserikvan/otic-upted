@@ -25,3 +25,24 @@ En el Back-End:
 Base de datos:
 
 	- MongoDB	
+
+## Correr la aplicacion de manera local
+
+Primero que nada tenemos que saber que esta aplicacion require una base de datos `MongoDB`. Una vez contamos con esto, podemos obtener un link the conexion a dicha base de datos. Este link the conexion tenemos que introducirlo en el archivo `config/keys.js.exemple`
+
+``` 
+module.exports = {
+	mongoURI: '<mongoose connect URL>'
+}
+
+```
+
+Una vez sustituido los datos necesarios, cambiamos el nombre de `keys.js.exemple` a `keys.js`, ahora solo hace falta instalar todas las dependencias necesarias.
+```
+npm install
+```
+
+Y por ultimo, iniciamos la aplicacion.
+```
+node main.js
+```
