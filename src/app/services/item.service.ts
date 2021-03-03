@@ -16,7 +16,7 @@ export class ItemService {
 
   items: any;
   selected: any;
-  api_uri: string = environment.api_url;
+  products_api_url: string = environment.products_api_url;
 
 
  constructor(private http: HttpClient) {
@@ -25,7 +25,7 @@ export class ItemService {
 
 	//this.fetchItems();
 	/*
-	this.http.get(this.api_uri, httpHeaders).subscribe(response => {
+	this.http.get(this.products_api_url, httpHeaders).subscribe(response => {
 		console.log(response)
 		this.items = response;
 	});
@@ -73,21 +73,21 @@ export class ItemService {
   }
 
  getItems():any {
-	return this.http.get(this.api_uri, httpHeaders);
+	return this.http.get(this.products_api_url, httpHeaders);
 
 /*
-	let items = <any>await this.http.get(this.api_uri, httpHeaders).toPromise();
+	let items = <any>await this.http.get(this.products_api_url, httpHeaders).toPromise();
 	this.items = items;
 	console.log(items);
 	return items;
-	this.http.get(this.api_uri, httpHeaders).subscribe(response => {
+	this.http.get(this.products_api_url, httpHeaders).subscribe(response => {
 		this.items = response;
 	});
        */
   }
 
   async fetchData() {
-	let items = <any>await this.http.get(this.api_uri, httpHeaders).toPromise();
+	let items = <any>await this.http.get(this.products_api_url, httpHeaders).toPromise();
 	this.items = items;
 	return items;
   }
@@ -100,7 +100,7 @@ export class ItemService {
 	console.log(item);
 	 */
 
-	this.http.post<any>(this.api_uri, item, httpHeaders).subscribe(response => {
+	this.http.post<any>(this.products_api_url, item, httpHeaders).subscribe(response => {
 		if(!response.error) {
 
 			//console.log(response);
@@ -114,11 +114,11 @@ export class ItemService {
   }
 
   async editItem(item: any, id: any): Promise<any> {
-	let edited = <any>await this.http.put<any>(`${this.api_uri}/${id}`, item, httpHeaders).toPromise()
+	let edited = <any>await this.http.put<any>(`${this.products_api_url}/${id}`, item, httpHeaders).toPromise()
 	return edited;
 	
 		/*
-	this.http.put<any>(`${this.api_uri}/${id}`, item, httpHeaders).subscribe(response => {
+	this.http.put<any>(`${this.products_api_url}/${id}`, item, httpHeaders).subscribe(response => {
 		console.log(response._id, this.items[0].id)
 		this.items.forEach(element => {
 			if(element.id == response._id) {
@@ -132,7 +132,7 @@ export class ItemService {
   }
 
   async deleteItem(item: any):Promise<any> {
-	let response = <any>await this.http.delete<any>(`${this.api_uri}/${item._id}`, httpHeaders).toPromise()
+	let response = <any>await this.http.delete<any>(`${this.products_api_url}/${item._id}`, httpHeaders).toPromise()
 	//return edited;
 	return response;
   }

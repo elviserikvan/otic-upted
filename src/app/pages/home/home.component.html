@@ -20,6 +20,7 @@
 			<ng-template [ngIf]="overview == 1">
 
 				<app-overview [selected]="item" 
+		     			[loggedUser]="loggedUser"
 					(editItem)="onEdit($event)" 
 					(addItem)="onAdd()"
 					(deleteItem)="onDelete($event)"></app-overview>

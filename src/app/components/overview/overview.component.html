@@ -5,23 +5,26 @@
 	<button (click)="onAdd()" class="my-4 btn btn-success">Añadir nuevo</button>
 	-->
 
-	<div class="dropdown text-right">
-		<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			...
-		</button>
+	<ng-template [ngIf]="_loggedUser">
+	
+		<div class="dropdown text-right">
+			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				...
+			</button>
 
-		<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-			<!--
-			<a class="dropdown-item" href="#">Action</a>
-			<a class="dropdown-item" href="#">Another action</a>
-			<a class="dropdown-item" href="#">Something else here</a>
-			<button (click)="onAdd()" class="dropdown-item btn btn-success">Añadir nuevo</button>
-			-->
-			<button (click)="onEdit()" class="dropdown-item btn btn-warning">Editar</button>
-			<button (click)="onDelete()" class="dropdown-item btn btn-danger">Eliminar</button>
+			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				<!--
+				<a class="dropdown-item" href="#">Action</a>
+				<a class="dropdown-item" href="#">Another action</a>
+				<a class="dropdown-item" href="#">Something else here</a>
+				<button (click)="onAdd()" class="dropdown-item btn btn-success">Añadir nuevo</button>
+				-->
+				<button (click)="onEdit()" class="dropdown-item btn btn-warning">Editar</button>
+				<button (click)="onDelete()" class="dropdown-item btn btn-danger">Eliminar</button>
+			</div>
 		</div>
-	</div>
 
+	</ng-template>
 	<div class="py-4">
 		
 		<!--

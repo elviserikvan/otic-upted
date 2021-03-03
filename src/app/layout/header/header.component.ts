@@ -1,4 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -7,15 +9,37 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  loggedUser: any;
+  //@Input() loggedUser: any;
   @Output() addItem: EventEmitter<any> = new EventEmitter();
 
-  constructor() { }
+  constructor(private userService: UserService, private _router: Router) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<any> {
+	  try {
+		let user = await this.userService.user().toPromise();
+		this.loggedUser = user;
+	  }catch (e) {
+		this.loggedUser = false;
+	  }
+	
+	  console.log(this.loggedUser);
   }
 
   onAdd() {
 	this.addItem.emit()
+  }
+
+  onLogout() {
+	this.userService.logout().subscribe(
+		data => {
+			this._router.navigate(['/']);
+			window.location.reload();
+		},
+		error => {
+			console.log(error);
+		}
+	);
   }
 
 }

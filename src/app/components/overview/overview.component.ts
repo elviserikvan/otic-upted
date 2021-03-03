@@ -13,6 +13,7 @@ export class OverviewComponent implements OnInit {
   @Output() editItem: EventEmitter<any> = new EventEmitter();
   @Output() deleteItem: EventEmitter<any> = new EventEmitter();
 
+  private _loggedUser;
 
   element: any;
   constructor(private itemService: ItemService) {
@@ -20,6 +21,20 @@ export class OverviewComponent implements OnInit {
   }
 
   ngOnInit(): void {
+	 console.log(this.loggedUser);
+  }
+
+  get loggedUser() {
+  	return this._loggedUser;
+  }   
+  
+  @Input()
+  set loggedUser(val: any) {
+	console.log(`Previus items: ${this._loggedUser}`);
+	console.log(`Current items: ${val}`);
+
+	this._loggedUser = val;
+  	
   }
 
   onAdd() {

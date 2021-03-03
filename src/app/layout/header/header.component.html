@@ -46,25 +46,42 @@
 				</ul>
 
 				<ul class="">
+					<ng-template [ngIf]="!loggedUser" [ngIfElse]="dropDown">
+					
+						<a class="btn btn-primary mr-4" routerLink="/login">Inicia Sesion</a>
+						<a class="btn btn-secondary" routerLink="/signup">Registrate</a>
+
+					</ng-template>
+
+					<ng-template #dropDown>
+						<div class="dropdown show">
+							<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownmenulink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								{{loggedUser.username}}
+							</a>
+
+							<div class="dropdown-menu" aria-labelledby="dropdownmenulink">
+								<a (click)="onAdd()" class="dropdown-item" href="#">anañir nuevo</a>
+								<a (click)="onLogout()" class="dropdown-item" href="#">cerrar sesion</a>
+							</div>
+						</div>
+					</ng-template>
 					<!--
-					<a class="btn btn-primary mr-4" routerLink="/login">Inicia Sesion</a>
-					<a class="btn btn-secondary" routerLink="/signup">Registrate</a>
 					<button (click)="onAdd()" type="button" class="btn btn-success">Añadir nuevo</button>
 					<a class="btn btn-primary mr-4" routerLink="/login">Inicia Sesion</a>
 					<a class="btn btn-secondary" routerLink="/signup">Registrate</a>
 
 					<div class="dropdown show">
-						<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Usuario
+						<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownmenulink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							usuario
 						</a>
 
-						<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-							<a (click)="onAdd()" class="dropdown-item" href="#">Anañir Nuevo</a>
-							<a class="dropdown-item" href="#">Cerrar Sesion</a>
+						<div class="dropdown-menu" aria-labelledby="dropdownmenulink">
+							<a (click)="onadd()" class="dropdown-item" href="#">anañir nuevo</a>
+							<a class="dropdown-item" href="#">cerrar sesion</a>
 						</div>
 					</div>
-					-->
 					<button (click)="onAdd()" type="button" class="btn btn-success">Añadir nuevo</button>
+					-->
 				</ul>
 
 				<!--
